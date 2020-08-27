@@ -25,7 +25,7 @@ type DatabaseSettingS struct {
 	TablePrefox  string
 	Charset      string
 	ParseTime    bool
-	MaxIdleConns bool
+	MaxIdleConns int
 	MaxOpenConns int
 }
 
