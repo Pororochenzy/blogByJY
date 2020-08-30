@@ -23,6 +23,11 @@ func init() {
 		log.Fatalf("init.setupLogger err: %v", err)
 	}
 }
+
+// @title 博客系统
+// @version 1.0
+// @description GO 语言编程之旅： 一起用Go做项目
+// @termsOfService https://github.com/go-programming-tour-bbbb
 func main() {
 	router := routers.NewRouter()
 	s := &http.Server{
