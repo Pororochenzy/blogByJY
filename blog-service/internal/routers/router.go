@@ -21,9 +21,9 @@ func NewRouter() *gin.Engine {
 	apiv1 := r.Group("/api/v1")
 	{
 		//暂时不需要获取一个标签的需求
-		apiv1.GET("/tags", tag.List) //标签列表
-		apiv1.POST("/tags", tag.Update)
-		apiv1.PUT("/tags/:id", tag.Create) //更新
+		apiv1.GET("/tags", tag.List)       //标签列表
+		apiv1.POST("/tags", tag.Create)    //增加
+		apiv1.PUT("/tags/:id", tag.Update) //更新
 		apiv1.DELETE("/tags/:id", tag.Delete)
 		apiv1.PATCH("/tags/:id/state", tag.Update)
 

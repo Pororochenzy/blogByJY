@@ -6,6 +6,7 @@ import (
 	"github.com/go-programming-tour-book/blog-service/internal/routers"
 	"github.com/go-programming-tour-book/blog-service/pkg/logger"
 	"github.com/go-programming-tour-book/blog-service/pkg/setting"
+	_ "github.com/go-sql-driver/mysql"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
@@ -21,6 +22,10 @@ func init() {
 	err = setupLogger()
 	if err != nil {
 		log.Fatalf("init.setupLogger err: %v", err)
+	}
+	err = setupDBEngine()
+	if err != nil {
+		log.Fatalf("init.setupDBEngine err: %v", err)
 	}
 }
 

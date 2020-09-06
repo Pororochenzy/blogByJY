@@ -10,7 +10,7 @@ type Tag struct {
 }
 
 func (t Tag) TableName() string {
-	return "blog_table"
+	return "blog_tag"
 }
 
 //model正常来说都是 定义结构体 实体类的, 不过作者在这里又包了一层，类似于dao层功能
@@ -47,9 +47,14 @@ func (t Tag) Create(db *gorm.DB) error {
 	return db.Create(&t).Error
 }
 
-func (t Tag) Update(db *gorm.DB) error {
-	db = db.Model(&Tag{}).Where("id =? AND is_del =?", t.ID, 0)
-	return db.Update(t).Error
+func (t Tag) Update(db *gorm.DB, values interface{}) error {
+	//db = db.Model(&Tag{}).Where("id =? AND is_del =?", t.ID, 0)
+	err := db.Model(&Tag{}).Where("id =? AND is_del =?", t.ID, 0).Updates(values).Error
+	//return db.Update(t).Error
+	if err != nil {
+		return err
+	}
+	return nil
 }
 func (t Tag) Delete(db *gorm.DB) error {
 	return db.Where("id=? AND is_del =?", t.Model.ID, 0).Delete(&t).Error
