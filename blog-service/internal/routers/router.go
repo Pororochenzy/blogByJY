@@ -26,6 +26,7 @@ func NewRouter() *gin.Engine {
 	//在gin中实现File Server
 	r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
 	apiv1 := r.Group("/api/v1")
+	apiv1.Use(middleware.JWT())
 	{
 		//暂时不需要获取一个标签的需求
 		apiv1.GET("/tags", tag.List)       //标签列表
@@ -40,6 +41,8 @@ func NewRouter() *gin.Engine {
 		apiv1.PATCH("/articles/:id/state", article.Update)
 		apiv1.GET("/articles/:id", article.Get)
 		apiv1.GET("/articles", article.List) //拿所有文章
+
+		r.GET("/auth", api.GetAuth)
 	}
 	return r
 }

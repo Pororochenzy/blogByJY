@@ -10,6 +10,7 @@ var (
 	ServerSetting   *setting.ServerSettingS
 	AppSetting      *setting.AppsettingS
 	DatabaseSetting *setting.DatabaseSettingS
+	JwtSetting      *setting.JwtSettingS
 )
 var (
 	DBEngine *gorm.DB
