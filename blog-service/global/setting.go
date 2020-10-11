@@ -11,6 +11,7 @@ var (
 	AppSetting      *setting.AppsettingS
 	DatabaseSetting *setting.DatabaseSettingS
 	JwtSetting      *setting.JwtSettingS
+	EmailSetting    *setting.EmailSettingS
 )
 var (
 	DBEngine *gorm.DB

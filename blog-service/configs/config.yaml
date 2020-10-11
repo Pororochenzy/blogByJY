@@ -31,3 +31,12 @@ JWT:
   Secret: czy
   Issuer: blog-service
   Expire: 7200
+Email:
+  Host: smtp.qq.com
+  Port: 465
+  UserName: 1164163739@qq.com
+  Password: Z3H3A1O6204
+  IsSSL: true
+  From: 1164163739@qq.com
+  To:
+    - 375369271@qq.com

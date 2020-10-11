@@ -48,7 +48,7 @@ func AccessLog() gin.HandlerFunc {
 
 }
 
-func Recovery() gin.HandlerFunc {
+func Recovery2() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		defer func() {
 			if err := recover(); err != nil {
